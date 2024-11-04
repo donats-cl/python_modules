@@ -1,5 +1,5 @@
 # Vec module
-## vec2 and vec3: 
+## vec2(x, y) and vec3(x, y, z) vec4(x, y, z, w):
     # Initialize vector a and b
     a = vec2(1, 2)
     b = vec2(2, 5)
@@ -15,7 +15,7 @@
     # vector (1*10, 2*10) = vector (10, 20);
     # c = vec2(10, 20)
     
-# Length vec2 and vec3
+# Length vec2 and vec3, vec4
     # Initialize vector a and b
     a = vec2(1, 1)
     b = vec2(2, 3)
