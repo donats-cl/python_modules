@@ -1,4 +1,5 @@
 from complex import *
 
 c = Complex(1, 1)
-print(c, c.linked())
+print(c)
+print(c.linked())
