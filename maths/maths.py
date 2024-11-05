@@ -6,13 +6,30 @@ class Sqrt:
         self.real = real
         self.sqrt = sqrt
 
+        self.have_real = False
+        self.have_sqrt = False
+
+        if real is not None and sqrt is not None:
+            self.value = real * math.sqrt(self.sqrt)
+            self.have_real = True
+            self.have_sqrt = True
+        elif sqrt is not None:
+            self.value = math.sqrt(self.sqrt)
+            self.have_sqrt = True
+        elif real is not None:
+            self.value = self.real
+            self.have_real = True
+
     def __str__(self):
-        return f"{self.real}*sqrt({self.sqrt})"
-
-
+        res = f"{self.real}*sqrt({self.sqrt})" if self.have_sqrt and self.have_real else f"sqrt({self.sqrt})" if self.have_sqrt and not self.have_real else f"{self.real}" if self.have_real and not self.have_sqrt else "NOTHING"
+        return res
+    
+def arn(x):
+    return int(x) if x % 1 < 0.5 else int(x)+1
+    
 def show_sqrt(x):
 
-    num = int(x**2)
+    num = arn(x**2)
     intg = 1
     sqrt_n = 1
     is_found = False
@@ -41,7 +58,12 @@ def show_sqrt(x):
                     break
             if is_found: break
 
-    return Sqrt(intg, sqrt_n)
+    if intg == 1 and not sqrt_n == 1:
+        return Sqrt(None, arn(sqrt_n))
+    elif sqrt_n == 1:
+        return Sqrt(intg, None)
+    else:
+        return Sqrt(intg, arn(sqrt_n))
 
 
 if __name__ == "__main__":

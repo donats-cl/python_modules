@@ -1,4 +1,6 @@
 from math import *
+from vec import *
+from maths import *
 
 class Complex:
     def __init__(self, real, imag):
@@ -23,7 +25,13 @@ class Complex:
         return Complex(real_part, imag_part)
     
     def __str__(self):
-        return f"{self.real} - {abs(self.imag)}i" if self.imag < 0 else f"{self.real} + {self.imag}i"
+        return f"{show_sqrt(self.real)} - {show_sqrt(abs(self.imag))}i" if self.imag < 0 else f"{show_sqrt(self.real)} + {show_sqrt(self.imag)}i"
     
     def linked(self):
         return Complex(self.real, -self.imag)
+    
+    def vec(self):
+        len = sqrt(self.real**2 + self.imag**2)
+        ang = atan2(self.real, self.imag)*180/pi
+
+        return vec2(len, ang if ang > 0 else 180+ang)

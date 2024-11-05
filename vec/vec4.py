@@ -1,4 +1,5 @@
 from math import *
+from maths import *
 
 
 class vec4:
@@ -9,7 +10,7 @@ class vec4:
         self.w = w
 
     def __str__(self):
-        return f"({self.x}, {self.y}, {self.z}, {self.w})"
+        return f"({show_sqrt(self.x)}, {show_sqrt(self.y)}, {show_sqrt(self.z)}, {show_sqrt(self.w)})"
 
     def from_point(self, A, B):
         self.x = B.x-A.x
