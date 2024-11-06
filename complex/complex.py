@@ -26,7 +26,7 @@ class Complex:
     
     def __str__(self):
         return f"{show_sqrt(self.real)} - {show_sqrt(abs(self.imag))}i" if self.imag < 0 else f"{show_sqrt(self.real)} + {show_sqrt(self.imag)}i"
-    
+
     def linked(self):
         return Complex(self.real, -self.imag)
     
@@ -35,3 +35,6 @@ class Complex:
         ang = atan2(self.real, self.imag)*180/pi
 
         return vec2(len, ang if ang > 0 else 180+ang)
+    
+    def raw(self):
+        return self.real, self.imag

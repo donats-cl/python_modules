@@ -1,5 +1,7 @@
 import math
 
+rtd = lambda x: x*180/math.pi
+dtr = lambda x: x*math.pi/180
 
 class Sqrt:
     def __init__(self, real, sqrt):
@@ -29,6 +31,8 @@ def arn(x):
     
 def show_sqrt(x):
 
+    # if x < 0: return Sqrt(float(str(x)[:10]), None)
+
     num = arn(x**2)
     intg = 1
     sqrt_n = 1
@@ -50,8 +54,9 @@ def show_sqrt(x):
                     break
     else:
         for i in range(1, 100):
-            for j in range(1, 100):
-                if abs(abs(math.sqrt(i)/j)-abs(x)) < 0.0001:
+            for j in range(-100, 100):
+                if j == 0: continue
+                if abs(math.sqrt(i)/j-x) < 0.0001:
                     intg = 1/j
                     sqrt_n = i
                     is_found = True
