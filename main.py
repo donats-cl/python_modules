@@ -8,3 +8,4 @@ print(f"Res: {a},\nRaw: {a.raw()}\n")
 print(f"Res: {b},\nRaw: {b.raw()}\n")
 c = a/b
 print(f"Res: {c},\nRaw: {c.raw()}\n")
+

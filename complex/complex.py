@@ -1,7 +1,10 @@
 from math import *
 from vec import *
 from maths import *
+from functools import *
 
+
+@total_ordering
 class Complex:
     def __init__(self, real, imag):
         self.real = real
@@ -26,6 +29,12 @@ class Complex:
     
     def __str__(self):
         return f"{show_sqrt(self.real)} - {show_sqrt(abs(self.imag))}i" if self.imag < 0 else f"{show_sqrt(self.real)} + {show_sqrt(self.imag)}i"
+    
+    def __eq__(self, other):
+        return self.real == other.real and self.imag == other.imag
+    
+    def __gt__(self, other):
+        return self.real > other.real and self.imag > other.imag
 
     def linked(self):
         return Complex(self.real, -self.imag)
