@@ -1,11 +1,21 @@
 from math import *
 from maths import *
+from .vec2 import *
+
+from functools import *
 
 
 class vec3:
+    @singledispatchmethod
     def __init__(self, x=0, y=0, z=0):
         self.x = x
         self.y = y
+        self.z = z
+    
+    @__init__.register
+    def _(self, v: vec2, z):
+        self.x = v.x
+        self.y = v.y
         self.z = z
 
     def __str__(self):
@@ -30,3 +40,23 @@ class vec3:
     
     def __truediv__(self, v):
         return vec3(self.x/v, self.y/v, self.z/v)
+    
+    @property
+    def yzx(self):
+        return vec3(self.y, self.z, self.x)
+    
+    @property
+    def zxy(self):
+        return vec3(self.z, self.x, self.y)
+    
+    @property
+    def xzy(self):
+        return vec3(self.x, self.z, self.y)
+    
+    @property
+    def zyx(self):
+        return vec3(self.z, self.y, self.x)
+    
+    @property
+    def yxz(self):
+        return vec3(self.y, self.x, self.z)

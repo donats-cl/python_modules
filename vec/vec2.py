@@ -28,4 +28,7 @@ class vec2:
     
     def __truediv__(self, v):
         return vec2(self.x/v, self.y/v)
-
+    
+    @property
+    def yx(self):
+        return vec2(self.y, self.x)
