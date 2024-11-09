@@ -26,6 +26,7 @@ class vec3:
         self.y = B.y-A.y
         self.z = B.z-A.z
     
+    @property
     def len(self):
         return sqrt(pow(self.x,2)+pow(self.y,2)+pow(self.z,2))
     

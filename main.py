@@ -1,11 +1,6 @@
 from complex import *
 from maths import *
 from vec import *
-from pprint import *
-
-v = vec3(1, 2, 3)
-
-print(v.xzy)
 
 
 a = Complex(2*cos(dtr(105)), 2*sin(dtr(105)))

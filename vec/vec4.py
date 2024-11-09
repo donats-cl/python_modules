@@ -37,6 +37,7 @@ class vec4:
         self.z = B.z-A.z
         self.w = B.w-A.w
     
+    @property
     def len(self):
         return sqrt(pow(self.x,2)+pow(self.y,2)+pow(self.z,2)+pow(self.w,2))
     
