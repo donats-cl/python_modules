@@ -36,6 +36,94 @@ class vec4:
         self.y = B.y-A.y
         self.z = B.z-A.z
         self.w = B.w-A.w
+
+    @property
+    def xyzw(self):
+        return vec4(self.x, self.y, self.z, self.w)
+
+    @property
+    def xzyw(self):
+        return vec4(self.x, self.z, self.y, self.w)
+
+    @property
+    def xzwy(self):
+        return vec4(self.x, self.z, self.w, self.y)
+
+    @property
+    def xwyz(self):
+        return vec4(self.x, self.w, self.y, self.z)
+
+    @property
+    def xwzy(self):
+        return vec4(self.x, self.w, self.z, self.y)
+
+    @property
+    def yxzw(self):
+        return vec4(self.y, self.x, self.z, self.w)
+
+    @property
+    def yxwz(self):
+        return vec4(self.y, self.x, self.w, self.z)
+
+    @property
+    def yzwx(self):
+        return vec4(self.y, self.z, self.w, self.x)
+
+    @property
+    def ywzx(self):
+        return vec4(self.y, self.w, self.z, self.x)
+
+    @property
+    def ywxz(self):
+        return vec4(self.y, self.w, self.x, self.z)
+
+    @property
+    def zxyw(self):
+        return vec4(self.z, self.x, self.y, self.w)
+
+    @property
+    def zxwy(self):
+        return vec4(self.z, self.x, self.w, self.y)
+
+    @property
+    def zywx(self):
+        return vec4(self.z, self.y, self.w, self.x)
+
+    @property
+    def zyxw(self):
+        return vec4(self.z, self.y, self.x, self.w)
+
+    @property
+    def zwxy(self):
+        return vec4(self.z, self.w, self.x, self.y)
+
+    @property
+    def zwyx(self):
+        return vec4(self.z, self.w, self.y, self.x)
+
+    @property
+    def wxyz(self):
+        return vec4(self.w, self.x, self.y, self.z)
+
+    @property
+    def wxzy(self):
+        return vec4(self.w, self.x, self.z, self.y)
+
+    @property
+    def wyxz(self):
+        return vec4(self.w, self.y, self.x, self.z)
+
+    @property
+    def wyzx(self):
+        return vec4(self.w, self.y, self.z, self.x)
+
+    @property
+    def wzxy(self):
+        return vec4(self.w, self.z, self.x, self.y)
+
+    @property
+    def wzyx(self):
+        return vec4(self.w, self.z, self.y, self.x)
     
     @property
     def len(self):
