@@ -33,31 +33,17 @@ def show_sqrt(x):
 
     # if x < 0: return Sqrt(float(str(x)[:10]), None)
 
-    num = arn(x**2)
+    # num = arn(x**2)
     intg = 1
     sqrt_n = 1
     is_found = False
-    
-    if x > 1:
-        for i in range(num, 1, -1):
-            if num % i**2 == 0:
-                intg = i
-                sqrt_n = (x/i)**2
-                is_found = True
-                break
 
-        if not is_found:
-            for i in range(num, 1, -1):
-                if num == i:
-                    intg = 1
-                    sqrt_n = i
-                    break
-    else:
-        for i in range(1, 100):
-            for j in range(-100, 100):
+    for i in range(1, 100):
+        for j in range(-100, 100):
+            for k in range(-100, 100):
                 if j == 0: continue
-                if abs(math.sqrt(i)/j-x) < 0.0001:
-                    intg = 1/j
+                if abs(k*math.sqrt(i)/j-x) < 0.0000001:
+                    intg = k/j
                     sqrt_n = i
                     is_found = True
                     break
@@ -65,6 +51,7 @@ def show_sqrt(x):
                     intg = 0
                     sqrt_n = 0
             if is_found: break
+        if is_found: break
 
     if intg == 1 and not sqrt_n == 1:
         return Sqrt(None, arn(sqrt_n))

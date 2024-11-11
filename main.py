@@ -1,7 +1,10 @@
 from complex import *
 from maths import *
 
-a = Complex(2, 2)
+a = Complex(-(3/2), (3/2))
+b = a.vec()
+print(b)
+# print(b.x, b.y)
 
 # print(~a)
 
@@ -9,9 +12,9 @@ a = Complex(2, 2)
 
 # print(b)
 
-v = vec2(1, 1)
+# v = vec2(1, 1)
 
-print(v.norm())
+# print(v.norm())
 
 
 # a = Complex(2*cos(dtr(105)), 2*sin(dtr(105)))
