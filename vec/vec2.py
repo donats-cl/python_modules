@@ -13,6 +13,9 @@ class vec2:
     def from_point(self, A, B):
         self.x = B.x-A.x
         self.y = B.y-A.y
+
+    def norm(self):
+        return vec2(self.x/self.len, self.y/self.len)
     
     @property
     def len(self):

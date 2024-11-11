@@ -32,3 +32,10 @@
     # get vector from points A and B
     AB = vec3.from_point(A, B)
     # vector (-2, -4, 5)
+
+# Normalize vector
+
+    a = vec2(1, 1)
+    b = a.norm()
+    # a => (1, 1) => len = sqrt(2)
+    # b => (sqrt(2)/2, sqrt(2)/2) => len = 1

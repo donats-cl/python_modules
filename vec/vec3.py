@@ -25,6 +25,9 @@ class vec3:
         self.x = B.x-A.x
         self.y = B.y-A.y
         self.z = B.z-A.z
+
+    def norm(self):
+        return vec3(self.x/self.len, self.y/self.len, self.z/self.len)
     
     @property
     def len(self):

@@ -36,6 +36,9 @@ class vec4:
         self.y = B.y-A.y
         self.z = B.z-A.z
         self.w = B.w-A.w
+    
+    def norm(self):
+        return vec4(self.x/self.len, self.y/self.len, self.z/self.len, self.w/self.len)
 
     @property
     def xyzw(self):
