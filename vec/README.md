@@ -21,8 +21,8 @@
     b = vec2(2, 3)
 
     # print lenght vector a and b
-    print(a.len()) # sqrt(2)
-    print(b.len()) # sqrt(13)
+    print(a.len) # sqrt(2)
+    print(b.len) # sqrt(13)
 
 # Get Vector from points
     # Initialize points A and B like vec3

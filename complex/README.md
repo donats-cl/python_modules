@@ -7,7 +7,7 @@
     a.real # 3
     a.imag # 2
 
-    b = a.linked()
+    b = ~a
     # 3 - 2i
 
     a + b

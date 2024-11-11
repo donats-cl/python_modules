@@ -35,8 +35,14 @@ class Complex:
     
     def __gt__(self, other):
         return self.real > other.real and self.imag > other.imag
+    
+    def pow(self, v):
+        res = self
+        for _ in range(1, v):
+            res = res * res
+        return res
 
-    def linked(self):
+    def __invert__(self):
         return Complex(self.real, -self.imag)
     
     def vec(self):

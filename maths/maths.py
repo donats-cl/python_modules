@@ -61,6 +61,9 @@ def show_sqrt(x):
                     sqrt_n = i
                     is_found = True
                     break
+                else:
+                    intg = 0
+                    sqrt_n = 0
             if is_found: break
 
     if intg == 1 and not sqrt_n == 1:
@@ -68,7 +71,10 @@ def show_sqrt(x):
     elif sqrt_n == 1:
         return Sqrt(intg, None)
     else:
-        return Sqrt(intg, arn(sqrt_n))
+        if math.sqrt(sqrt_n) % 1 == 0:
+            return Sqrt(intg*math.sqrt(sqrt_n), None)
+        else:
+            return Sqrt(intg, arn(sqrt_n))
 
 
 if __name__ == "__main__":
