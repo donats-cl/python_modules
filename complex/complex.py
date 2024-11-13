@@ -37,10 +37,9 @@ class Complex:
         return self.real > other.real and self.imag > other.imag
     
     def pow(self, v):
-        res = self
-        for _ in range(1, v):
-            res = res * res
-        return res
+        vec = self.vec()
+        r = vec.x ** v
+        return Complex(r*cos(v*dtr(vec.y)), r*sin(v*dtr(vec.y)))
 
     def __invert__(self):
         return Complex(self.real, -self.imag)
@@ -49,7 +48,7 @@ class Complex:
         len = sqrt(self.real**2 + self.imag**2)
         ang = atan2(self.real, self.imag)*180/pi
 
-        return vec2(len, ang if ang > 0 else 180+ang)
+        return vec2(len, ang if ang > -1 else 180+ang)
     
     def raw(self):
         return self.real, self.imag

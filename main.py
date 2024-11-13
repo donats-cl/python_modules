@@ -1,16 +1,16 @@
 from complex import *
 from maths import *
 
-a = Complex(-(3/2), (3/2))
+a = Complex(1, 1)
 b = a.vec()
 print(b)
 # print(b.x, b.y)
 
 # print(~a)
 
-# b = a.pow(2)
+b = a.pow(2)
 
-# print(b)
+print(b)
 
 # v = vec2(1, 1)
 
