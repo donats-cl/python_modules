@@ -6,9 +6,13 @@ from functools import *
 
 @total_ordering
 class Complex:
-    def __init__(self, real, imag):
-        self.real = real
-        self.imag = imag
+    def __init__(self, real, imag, trig=False):
+        if not trig:
+            self.real = real
+            self.imag = imag
+        else:
+            self.real = real*cos(dtr(imag))
+            self.imag = real*sin(dtr(imag))
     
     def __add__(self, other):
         return Complex(self.real + other.real, self.imag + other.imag)
@@ -36,10 +40,21 @@ class Complex:
     def __gt__(self, other):
         return self.real > other.real and self.imag > other.imag
     
-    def pow(self, v):
+    def pow(self, v=2):
         vec = self.vec()
-        r = vec.x ** v
+        r = vec.x**v
         return Complex(r*cos(v*dtr(vec.y)), r*sin(v*dtr(vec.y)))
+    
+    def sqrt(self, v=2):
+        vec=self.vec()
+        r=vec.x**(1/v)
+        complexes=[]
+
+        for i in range(0,v):
+            phi=(vec.y+2*pi*i)/v
+            complexes.append(Complex(r*cos(dtr(phi)), r*sin(dtr(phi))))
+
+        return complexes
 
     def __invert__(self):
         return Complex(self.real, -self.imag)

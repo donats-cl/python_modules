@@ -1,8 +1,8 @@
-from math import *
-from maths import *
+from math import sqrt
+from maths import show_sqrt
 from .vec2 import *
 
-from functools import *
+from functools import singledispatchmethod
 
 
 class vec3:
@@ -29,6 +29,15 @@ class vec3:
     def norm(self):
         return vec3(self.x/self.len, self.y/self.len, self.z/self.len)
     
+    # def __getattr__(self, name):
+    #     v = [i for i in name]
+    #     if len(v) == 2:
+    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
+    #     elif len(v) == 3:
+    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
+    #     else:
+    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
+    
     @property
     def len(self):
         return sqrt(pow(self.x,2)+pow(self.y,2)+pow(self.z,2))
@@ -45,22 +54,4 @@ class vec3:
     def __truediv__(self, v):
         return vec3(self.x/v, self.y/v, self.z/v)
     
-    @property
-    def yzx(self):
-        return vec3(self.y, self.z, self.x)
     
-    @property
-    def zxy(self):
-        return vec3(self.z, self.x, self.y)
-    
-    @property
-    def xzy(self):
-        return vec3(self.x, self.z, self.y)
-    
-    @property
-    def zyx(self):
-        return vec3(self.z, self.y, self.x)
-    
-    @property
-    def yxz(self):
-        return vec3(self.y, self.x, self.z)

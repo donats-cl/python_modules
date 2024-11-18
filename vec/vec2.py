@@ -1,6 +1,5 @@
-from math import *
-from maths import *
-
+from math import sqrt
+from maths import show_sqrt
 
 class vec2:
     def __init__(self, x=0, y=0):
@@ -9,6 +8,15 @@ class vec2:
 
     def __str__(self):
         return f"({show_sqrt(self.x)}, {show_sqrt(self.y)})"
+    
+    # def __getattr__(self, name):
+    #     v = [i for i in name]
+    #     if len(v) == 2:
+    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
+    #     elif len(v) == 3:
+    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
+    #     else:
+    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
 
     def from_point(self, A, B):
         self.x = B.x-A.x
@@ -32,7 +40,3 @@ class vec2:
     
     def __truediv__(self, v):
         return vec2(self.x/v, self.y/v)
-    
-    @property
-    def yx(self):
-        return vec2(self.y, self.x)

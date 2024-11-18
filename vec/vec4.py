@@ -1,9 +1,10 @@
-from math import *
-from maths import *
+from math import sqrt
+from maths import show_sqrt
 from .vec2 import *
 from .vec3 import *
 
-from functools import *
+
+from functools import singledispatchmethod
 
 
 class vec4:
@@ -39,95 +40,16 @@ class vec4:
     
     def norm(self):
         return vec4(self.x/self.len, self.y/self.len, self.z/self.len, self.w/self.len)
-
-    @property
-    def xyzw(self):
-        return vec4(self.x, self.y, self.z, self.w)
-
-    @property
-    def xzyw(self):
-        return vec4(self.x, self.z, self.y, self.w)
-
-    @property
-    def xzwy(self):
-        return vec4(self.x, self.z, self.w, self.y)
-
-    @property
-    def xwyz(self):
-        return vec4(self.x, self.w, self.y, self.z)
-
-    @property
-    def xwzy(self):
-        return vec4(self.x, self.w, self.z, self.y)
-
-    @property
-    def yxzw(self):
-        return vec4(self.y, self.x, self.z, self.w)
-
-    @property
-    def yxwz(self):
-        return vec4(self.y, self.x, self.w, self.z)
-
-    @property
-    def yzwx(self):
-        return vec4(self.y, self.z, self.w, self.x)
-
-    @property
-    def ywzx(self):
-        return vec4(self.y, self.w, self.z, self.x)
-
-    @property
-    def ywxz(self):
-        return vec4(self.y, self.w, self.x, self.z)
-
-    @property
-    def zxyw(self):
-        return vec4(self.z, self.x, self.y, self.w)
-
-    @property
-    def zxwy(self):
-        return vec4(self.z, self.x, self.w, self.y)
-
-    @property
-    def zywx(self):
-        return vec4(self.z, self.y, self.w, self.x)
-
-    @property
-    def zyxw(self):
-        return vec4(self.z, self.y, self.x, self.w)
-
-    @property
-    def zwxy(self):
-        return vec4(self.z, self.w, self.x, self.y)
-
-    @property
-    def zwyx(self):
-        return vec4(self.z, self.w, self.y, self.x)
-
-    @property
-    def wxyz(self):
-        return vec4(self.w, self.x, self.y, self.z)
-
-    @property
-    def wxzy(self):
-        return vec4(self.w, self.x, self.z, self.y)
-
-    @property
-    def wyxz(self):
-        return vec4(self.w, self.y, self.x, self.z)
-
-    @property
-    def wyzx(self):
-        return vec4(self.w, self.y, self.z, self.x)
-
-    @property
-    def wzxy(self):
-        return vec4(self.w, self.z, self.x, self.y)
-
-    @property
-    def wzyx(self):
-        return vec4(self.w, self.z, self.y, self.x)
     
+    # def __getattr__(self, name):
+    #     v = [i for i in name]
+    #     if len(v) == 2:
+    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
+    #     elif len(v) == 3:
+    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
+    #     else:
+    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
+        
     @property
     def len(self):
         return sqrt(pow(self.x,2)+pow(self.y,2)+pow(self.z,2)+pow(self.w,2))
