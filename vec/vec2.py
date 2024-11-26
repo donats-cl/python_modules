@@ -1,6 +1,9 @@
 from math import sqrt
 from maths import show_sqrt
 
+from functools import singledispatchmethod
+from typing import Self
+
 class vec2:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -9,14 +12,10 @@ class vec2:
     def __str__(self):
         return f"({show_sqrt(self.x)}, {show_sqrt(self.y)})"
     
-    # def __getattr__(self, name):
-    #     v = [i for i in name]
-    #     if len(v) == 2:
-    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
-    #     elif len(v) == 3:
-    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
-    #     else:
-    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
+    def __getattr__(self, name):
+        v = [i for i in name]
+        if len(v) == 2:
+            return vec2(getattr(self, v[0]), getattr(self, v[1]))
 
     def from_point(self, A, B):
         self.x = B.x-A.x

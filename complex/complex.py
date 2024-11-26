@@ -6,7 +6,7 @@ from functools import *
 
 @total_ordering
 class Complex:
-    def __init__(self, real, imag, trig=False):
+    def __init__(self, real=0, imag=0, trig=False):
         if not trig:
             self.real = real
             self.imag = imag
@@ -61,9 +61,9 @@ class Complex:
     
     def vec(self):
         len = sqrt(self.real**2 + self.imag**2)
-        ang = atan2(self.real, self.imag)*180/pi
+        ang = rtd(atan(self.imag/self.real))
 
-        return vec2(len, ang if ang > -1 else 180+ang)
+        return vec2(len, ang) # if ang > -1 else 180+ang
     
     def raw(self):
         return self.real, self.imag

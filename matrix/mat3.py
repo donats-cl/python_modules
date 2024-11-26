@@ -1,14 +1,22 @@
 from vec import *
-
+from functools import singledispatchmethod
 
 class mat3:
+    @singledispatchmethod
     def __init__(self, v):
         self.mat = vec3(vec3(v[0][0], v[0][1], v[0][2]),
                         vec3(v[1][0], v[1][1], v[1][2]),
                         vec3(v[2][0], v[2][1], v[2][2]))
+    
+    @__init__.register
+    def _(self, x: vec3, y: vec3, z: vec3):
+        self.mat = vec3(x, y, z)
         
     def __str__(self):
         return f"[{self.mat.x}\n{self.mat.y}\n{self.mat.z}]"
+    
+    def raw(self):
+        return f"[{self.mat.x.raw()}\n{self.mat.y.raw()}\n{self.mat.z.raw()}]"
 
     def extend(self, v):
         self.x = v[0]
@@ -39,8 +47,21 @@ class mat3:
         res.extend([x.w, y.w, z.w])
 
         return res
+    
+    @property
+    def x(self):
+        return self.mat.x
+    
+    @property
+    def y(self):
+        return self.mat.y
+    
+    @property
+    def z(self):
+        return self.mat.z
 
     # determinant
+    @property
     def len(self):
         x = self.mat.x
         y = self.mat.y

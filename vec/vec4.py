@@ -3,7 +3,6 @@ from maths import show_sqrt
 from .vec2 import *
 from .vec3 import *
 
-
 from functools import singledispatchmethod
 
 
@@ -41,14 +40,14 @@ class vec4:
     def norm(self):
         return vec4(self.x/self.len, self.y/self.len, self.z/self.len, self.w/self.len)
     
-    # def __getattr__(self, name):
-    #     v = [i for i in name]
-    #     if len(v) == 2:
-    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
-    #     elif len(v) == 3:
-    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
-    #     else:
-    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
+    def __getattr__(self, name):
+        v = [i for i in name]
+        if len(v) == 2:
+            return vec2(getattr(self, v[0]), getattr(self, v[1]))
+        elif len(v) == 3:
+            return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
+        else:
+            return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
         
     @property
     def len(self):
@@ -62,6 +61,9 @@ class vec4:
     
     def __mul__(self, v):
         return vec4(self.x*v, self.y*v, self.z*v, self.w*v)
+    
+    def __matmul__(self, v):
+        ... 
     
     def __truediv__(self, v):
         return vec4(self.x/v, self.y/v, self.z/v, self.w*v)

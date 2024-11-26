@@ -1,17 +1,40 @@
 from complex import Complex
-from vec import vec2
+from vec import vec2, vec3, vec4
+from matrix import mat3
+from maths import rtd
+from math import pi
+
+e = Complex(1, rtd(2*pi/3), trig=True)
+o = Complex(0)
+a = Complex(1)
+
+mat = mat3([
+    [o,o,e.pow()],
+    [a,o,e.pow()],
+    [e.pow(), e, a]])
+
+print(mat.raw(), mat.len)
+
+# a = vec3(1,0,0)
+# m = mat3(a.xyy, a.yxy, a.yyx)
+
+# print(m.x.x)
+
+# v = (Complex(1,2).pow()-Complex(2,-1).pow(3))/(Complex(1,-1).pow(3)+Complex(2,1).pow())
+
+# print(v)
 
 # a = Complex(1, 1)
 # b = a.vec()
 # print(b)
 
-a = Complex(2, 2)
-b=a.pow()
-print(b)
-c=b.sqrt()
+# a = Complex(2, 2)
+# b=a.pow()
+# print(b)
+# c=b.sqrt()
 
-for i in c:
-    print(i)
+# for i in c:
+#     print(i)
 
 # b = a.pow(2)
 

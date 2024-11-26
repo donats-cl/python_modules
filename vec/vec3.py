@@ -19,7 +19,10 @@ class vec3:
         self.z = z
 
     def __str__(self):
-        return f"({show_sqrt(self.x)}, {show_sqrt(self.y)}, {show_sqrt(self.z)}"
+        return f"({show_sqrt(self.x)}, {show_sqrt(self.y)}, {show_sqrt(self.z)})"
+    
+    def raw(self):
+        return f"({self.x}, {self.y}, {self.z})"
 
     def from_point(self, A, B):
         self.x = B.x-A.x
@@ -29,14 +32,12 @@ class vec3:
     def norm(self):
         return vec3(self.x/self.len, self.y/self.len, self.z/self.len)
     
-    # def __getattr__(self, name):
-    #     v = [i for i in name]
-    #     if len(v) == 2:
-    #         return vec2(getattr(self, v[0]), getattr(self, v[1]))
-    #     elif len(v) == 3:
-    #         return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
-    #     else:
-    #         return vec4(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]), getattr(self, v[3]))
+    def __getattr__(self, name):
+        v = [i for i in name]
+        if len(v) == 2:
+            return vec2(getattr(self, v[0]), getattr(self, v[1]))
+        else:
+            return vec3(getattr(self, v[0]), getattr(self, v[1]), getattr(self, v[2]))
     
     @property
     def len(self):
